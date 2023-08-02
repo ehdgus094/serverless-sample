@@ -1,2 +1,2 @@
 def run():
-    print('lib~~~~')
+    print('lib~~~')
