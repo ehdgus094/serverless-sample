@@ -1,0 +1,23 @@
+service: serverless-sample
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: ap-northeast-2
+  runtime: python3.7
+  stage: dev
+
+functions:
+  hello:
+    handler: src/hello.lambda_handler
+    layers:
+      - !Ref LibLambdaLayer
+    events:
+      - httpApi:
+          method: GET
+          path: /hello
+
+layers:
+  lib:
+    path: lib
